@@ -41,16 +41,8 @@ class CashfreePaymentService extends AbstractPaymentProvider<Options> {
         const returnUrl = (cartContext && cartContext.return_url) ||
             "http://localhost:3000/order/confirmed"
 
-        // Amount is coming in as smallest unit (cents)
-        // Cashfree expects major unit (e.g. 10.50) if dealing with INR?
-        // Actually, let's just assume Medusa standards.
-        // If standard Medusa logic applies, we should pass 'amount' directly if the gateway supports cents.
-        // Cashfree API for `order_amount` is a double. "10.00"
-        // Medusa `amount` is 1000.
-        // So we divide by 100.
-
         const request = {
-            order_amount: amount / 100,
+            order_amount: amount / 100, // Handle decimals
             order_currency: (currency_code || "INR").toUpperCase(),
             order_id: resource_id || "order_" + Date.now(),
             customer_details: {
@@ -91,46 +83,37 @@ class CashfreePaymentService extends AbstractPaymentProvider<Options> {
         return { id: paymentSessionData.id }
     }
 
-    async capturePayment(payment: any): Promise<any> {
+    async capturePayment(payment: Record<string, unknown>): Promise<any> {
         this.logger_.info("[Cashfree] capturePayment")
         return { status: "captured" }
     }
 
     async deletePayment(paymentSessionData: Record<string, unknown>): Promise<any> {
         this.logger_.info("[Cashfree] deletePayment")
-        return
+        return {}
     }
 
     async getPaymentData(paymentSessionData: Record<string, unknown>): Promise<any> {
         return paymentSessionData
     }
 
-    async refundPayment(payment: any, refundAmount: number): Promise<any> {
+    async refundPayment(payment: Record<string, unknown>, refundAmount: number): Promise<any> {
         this.logger_.info("[Cashfree] refundPayment")
         return { id: payment.id }
     }
 
-    // --- Missing Implementations for AbstractPaymentProvider ---
-
-    async getPaymentStatus(paymentSessionData: Record<string, unknown>): Promise<string> {
+    async getPaymentStatus(paymentSessionData: Record<string, unknown>): Promise<any> {
         this.logger_.info("[Cashfree] getPaymentStatus")
-        return "authorized" // Simplified for now
+        return "authorized"
     }
 
-    async retrievePayment(paymentSessionData: Record<string, unknown>): Promise<Record<string, unknown>> {
+    async retrievePayment(paymentSessionData: Record<string, unknown>): Promise<any> {
         this.logger_.info("[Cashfree] retrievePayment")
         return paymentSessionData
     }
 
     async updatePayment(context: any): Promise<any> {
         this.logger_.info("[Cashfree] updatePayment")
-        // Re-initiate if needed, or just return existing session data
-        return {
-            id: context.payment_session_data?.id, // fallback?
-            // Actually update logic usually calls initiatePayment internally or similar.
-            // Let's just create a new one to be safe as previously decided.
-        }
-        // Better: Just return what we have as "updated" doesn't change much for Cashfree unless amount changed.
         return this.initiatePayment(context)
     }
 

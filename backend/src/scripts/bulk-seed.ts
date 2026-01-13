@@ -43,7 +43,7 @@ export default async function bulkSeedMetadata({ container }: ExecArgs) {
             }
 
             // 2. Create Product Type
-            const existingTypes = await productModuleService.listProductTypes({ value: [item] });
+            const existingTypes = await productModuleService.listProductTypes({ value: [item] } as any);
             if (existingTypes.length === 0) {
                 await productModuleService.createProductTypes([{ value: item }]);
                 logger.info(`Created Type: ${item}`);
