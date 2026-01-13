@@ -1,0 +1,607 @@
+/* Global Font & Reset */
+.container {
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    color: #333;
+    line-height: 1.3em;
+    min-height: 100vh;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 1fr 42%;
+    min-height: 100vh;
+}
+
+/* Left Column (Forms) */
+.formSection {
+    padding: 3.5rem 6%;
+    padding-right: 4rem;
+    /* Specific spacing */
+    background: #fff;
+    border-right: 1px solid #e6e6e6;
+    margin-left: auto;
+    max-width: 600px;
+    /* Constrain width */
+    width: 100%;
+}
+
+/* Right Column (Summary) */
+.summarySection {
+    background: #fafafa;
+    padding: 3.5rem 6%;
+    padding-left: 3rem;
+    border-left: 1px solid #e6e6e6;
+    width: 100%;
+    margin-right: auto;
+    max-width: 500px;
+}
+
+/* Brand & Breadcrumbs */
+.brandHeader {
+    margin-bottom: 1.5rem;
+}
+
+.brandHeader h2 {
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+}
+
+.breadcrumb {
+    font-size: 0.8rem;
+    color: #737373;
+    margin-bottom: 2rem;
+}
+
+/* Sections */
+.section {
+    margin-bottom: 2.5rem;
+}
+
+.sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1rem;
+}
+
+.sectionTitle {
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: #333;
+    margin: 0;
+}
+
+.loginLink {
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.loginLink a {
+    color: #1990c6;
+    text-decoration: none;
+}
+
+.loginLink a:hover {
+    text-decoration: underline;
+}
+
+.subtext {
+    font-size: 0.9rem;
+    color: #737373;
+    margin-bottom: 1.2rem;
+}
+
+/* Form Inputs */
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.input,
+.select {
+    width: 100%;
+    padding: 0.9rem;
+    border: 1px solid #d9d9d9;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    transition: all 0.2s ease-in-out;
+    background: white;
+    color: #333;
+}
+
+.input:focus,
+.select:focus {
+    border-color: #333;
+    outline: none;
+    box-shadow: 0 0 0 1px #333;
+}
+
+.input::placeholder {
+    color: #737373;
+}
+
+.inputRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem;
+}
+
+.inputRow.threeCols {
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.phoneGroup {
+    position: relative;
+}
+
+.flagIcon {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 1.2rem;
+}
+
+.checkboxRow {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+    color: #545454;
+    margin-top: 0.3rem;
+}
+
+.checkboxRow input {
+    width: 18px;
+    height: 18px;
+    border-radius: 4px;
+    accent-color: #000;
+}
+
+/* Buttons */
+.primaryBtn {
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 1.3rem;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 1.5rem;
+    transition: opacity 0.2s;
+}
+
+.primaryBtn:hover {
+    opacity: 0.85;
+}
+
+.primaryBtn:disabled {
+    background: #c3c3c3;
+    cursor: not-allowed;
+}
+
+/* Saved Info Box (Contact/Ship To Summary) */
+.summaryBox {
+    border: 1px solid #d9d9d9;
+    border-radius: 5px;
+    padding: 0 1.2rem;
+    background: #fff;
+}
+
+.summaryRow {
+    display: flex;
+    padding: 0.9rem 0;
+    font-size: 0.9rem;
+    align-items: flex-start;
+}
+
+.summaryRow:not(:last-child) {
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.summaryLabel {
+    color: #737373;
+    width: 70px;
+    /* Fixed width for labels like 'Contact' */
+    flex-shrink: 0;
+}
+
+.summaryValue {
+    color: #333;
+    flex: 1;
+    padding: 0 1rem;
+    line-height: 1.4;
+}
+
+.changeBtn {
+    color: #1990c6;
+    background: none;
+    border: none;
+    font-size: 0.8rem;
+    cursor: pointer;
+    padding: 0;
+}
+
+.changeBtn:hover {
+    color: #000;
+}
+
+/* Shipping Method Box */
+.shippingMethodBox {
+    border: 1px solid #d9d9d9;
+    background: #fff;
+    border-radius: 5px;
+    padding: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.shippingInfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.shippingName {
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.shippingDesc {
+    font-size: 0.85rem;
+    color: #737373;
+    margin-top: 0.2rem;
+}
+
+.shippingPrice {
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+/* Payment Box */
+.paymentBox {
+    border: 1px solid #d9d9d9;
+    border-radius: 5px;
+    background: #fff;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+.paymentOption {
+    display: block;
+    cursor: pointer;
+    border-bottom: 1px solid #d9d9d9;
+}
+
+.paymentOption:last-child {
+    border-bottom: none;
+}
+
+.paymentOption.selected {
+    background: #fdfdfd;
+}
+
+.paymentOption.disabled {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.radioHeader {
+    padding: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Space for icons */
+}
+
+.radioHeaderLeft {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.paymentOption input[type="radio"] {
+    accent-color: #1990c6;
+    /* Blue selection like Shopify */
+    width: 18px;
+    height: 18px;
+}
+
+.paymentLabelText {
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.paymentIcons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.payIcon {
+    /* Simple CSS Pill for icons if we don't have SVGs */
+    background: #fff;
+    border: 1px solid #eaccae;
+    /* Goldish for cards? No, gray usually */
+    border-color: #ddd;
+    border-radius: 2px;
+    padding: 2px 6px;
+    font-size: 0.6rem;
+    color: #555;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.iconImg {
+    height: 22px;
+    width: auto;
+}
+
+.paymentDetails {
+    background: #fafafa;
+    padding: 1.5rem;
+    border-top: 1px solid #d9d9d9;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #545454;
+    line-height: 1.5;
+}
+
+.warningBox {
+    background: #fff8f8;
+    color: #d73a49;
+    padding: 0.8rem 1.1rem;
+    font-size: 0.85rem;
+    border-top: 1px solid #ffeef0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Summary Column Styles */
+.itemsList {
+    max-height: 50vh;
+    overflow-y: auto;
+    margin-bottom: 1.5rem;
+    padding-right: 0.5rem;
+}
+
+.item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+}
+
+.itemImageWrapper {
+    position: relative;
+    width: 64px;
+    height: 64px;
+    border: 1px solid #e6e6e6;
+    border-radius: 8px;
+    background: #fff;
+    overflow: visible;
+}
+
+.itemImage {
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.qtyBadge {
+    position: absolute;
+    top: -10px;
+    right: -8px;
+    background: #727272;
+    color: #fff;
+    width: 21px;
+    height: 21px;
+    border-radius: 50%;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    font-weight: 500;
+}
+
+.itemInfo {
+    flex: 1;
+}
+
+.itemName {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #333;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.itemVariant {
+    font-size: 0.8rem;
+    color: #737373;
+    margin: 0.2rem 0 0 0;
+}
+
+.itemPrice {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Shipping List */
+.shippingDescList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: #545454;
+    line-height: 1.5;
+    margin-top: 0.5rem;
+}
+
+.shippingDescList span {
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
+/* Redirect Visual */
+.redirectVisual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.windowIcon {
+    width: 60px;
+    height: 40px;
+    border: 1px solid #999;
+    border-radius: 3px;
+    position: relative;
+    background: #fff;
+}
+
+.dots {
+    display: flex;
+    gap: 2px;
+    padding: 3px;
+    border-bottom: 1px solid #eee;
+}
+
+.dots span {
+    width: 3px;
+    height: 3px;
+    background: #ccc;
+    border-radius: 50%;
+}
+
+.arrowIcon {
+    font-size: 1.5rem;
+    color: #555;
+    margin-left: -10px;
+    /* Overlap slightly for effect */
+    z-index: 2;
+    background: #fafafa;
+    /* Mask line behind */
+    border-radius: 50%;
+}
+
+.costRows {
+    border-top: 1px solid #e6e6e6;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 1.2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    color: #535353;
+}
+
+.row span:last-child {
+    color: #333;
+    font-weight: 500;
+}
+
+.totalRow {
+    padding-top: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.totalLabel {
+    font-size: 1.05rem;
+    color: #333;
+}
+
+.totalValueWrapper {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
+.currencyCode {
+    font-size: 0.75rem;
+    color: #737373;
+    font-weight: 400;
+}
+
+.totalValue {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Verified Badge in Summary */
+.verifiedBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.8rem;
+    color: #1990c6;
+    margin-top: 4px;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+    .layout {
+        display: flex;
+        flex-direction: column-reverse;
+        /* Form first, then Summary on top if we want, or bottom? Standard is Form first on mobile usually unless there's a toggle. Let's stick to user request for 'phone perfect' which usually implies seeing what to pay first OR filling details. Let's keep standard stacking: Summary TOP (via Accordion usually) or Bottom. 
+        Actually, let's make it: Summary at BOTTOM/TOP? 
+        The previous code had order: -1 for summary. Let's keep it but make it collapsible or just smaller.
+        For now, let's use: Form (fill), Summary (review). Or Summary (check) -> Form.
+        Let's stick to: Summary Top (so they see what they pay) but minimized? No, let's just stack standard.
+        */
+        grid-template-columns: 1fr;
+        flex-direction: column;
+    }
+
+    .formSection,
+    .summarySection {
+        max-width: 100%;
+        width: 100%;
+        padding: 1.5rem 1.2rem;
+        /* Reduced padding for mobile */
+        border: none;
+    }
+
+    .summarySection {
+        order: -1;
+        /* Keep Summary at Top for visibility of price */
+        background: #fafafa;
+        border-bottom: 1px solid #e6e6e6;
+        padding-bottom: 2rem;
+    }
+}
+
+@media (max-width: 550px) {
+
+    .inputRow,
+    .inputRow.threeCols {
+        grid-template-columns: 1fr;
+        /* Stack inputs */
+        gap: 0.85rem;
+    }
+
+    .brandHeader h2 {
+        font-size: 1.5rem;
+    }
+
+    .primaryBtn {
+        padding: 1.1rem;
+        font-size: 0.95rem;
+    }
+}

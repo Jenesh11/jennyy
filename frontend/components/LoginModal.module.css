@@ -1,0 +1,231 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.modal {
+    background: white;
+    width: 90%;
+    max-width: 400px;
+    padding: 2.5rem;
+    border-radius: 8px;
+    /* Slightly squarish for premium feel */
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    animation: slideUp 0.3s ease-out;
+    text-align: center;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--color-gray-500);
+}
+
+.title {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-gray-900);
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    color: var(--color-gray-600);
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.inputGroup {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--color-gray-300);
+    border-radius: 4px;
+    padding: 0.25rem 0.5rem;
+    transition: all 0.2s;
+}
+
+.inputGroup:focus-within {
+    border-color: var(--color-gray-900);
+}
+
+.prefix {
+    padding: 0.75rem;
+    font-weight: 600;
+    color: var(--color-gray-900);
+    border-right: 1px solid var(--color-gray-200);
+    margin-right: 0.5rem;
+}
+
+.input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 1.1rem;
+    padding: 0.5rem;
+    color: var(--color-gray-900);
+    width: 100%;
+}
+
+.otpContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.otpInput {
+    border: 1px solid var(--color-gray-300);
+    border-radius: 4px;
+    padding: 0.75rem;
+    font-size: 1.5rem;
+    text-align: center;
+    letter-spacing: 0.5rem;
+    width: 100%;
+    max-width: 200px;
+}
+
+.otpInput:focus {
+    border-color: var(--color-gray-900);
+    outline: none;
+}
+
+.submitBtn {
+    background: var(--color-primary);
+    /* Gold/Primary */
+    color: white;
+    border: none;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: opacity 0.2s;
+}
+
+.submitBtn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.resendBtn {
+    background: none;
+    border: none;
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-decoration: underline;
+    margin-top: -1rem;
+}
+
+.error {
+    color: #e53935;
+    background: #ffebee;
+    padding: 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 1.5rem 0;
+    color: var(--color-gray-500);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.divider::before,
+.divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--color-gray-200);
+}
+
+.divider span {
+    padding: 0 1rem;
+}
+
+.googleBtn {
+    width: 100%;
+    background: white;
+    border: 1px solid var(--color-gray-300);
+    border-radius: 4px;
+    /* Consistent radius */
+    padding: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-gray-700);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: var(--font-body);
+}
+
+.googleBtn:hover {
+    background: var(--color-gray-50);
+    border-color: var(--color-gray-400);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.googleBtn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.terms {
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    color: var(--color-gray-500);
+    line-height: 1.5;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
