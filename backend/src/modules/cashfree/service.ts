@@ -70,46 +70,46 @@ class CashfreePaymentService extends AbstractPaymentProvider<Options> {
         }
     }
 
-    async authorizePayment(paymentSessionData: Record<string, unknown>, context: Record<string, unknown>): Promise<any> {
+    async authorizePayment(input: any): Promise<any> {
         this.logger_.info("[Cashfree] authorizePayment")
         return {
             status: "authorized",
-            data: paymentSessionData
+            data: input.payment_session_data || input
         }
     }
 
-    async cancelPayment(paymentSessionData: Record<string, unknown>): Promise<any> {
+    async cancelPayment(input: any): Promise<any> {
         this.logger_.info("[Cashfree] cancelPayment")
-        return { id: paymentSessionData.id }
+        return { id: input.id || input.payment_session_data?.id }
     }
 
-    async capturePayment(payment: Record<string, unknown>): Promise<any> {
+    async capturePayment(input: any): Promise<any> {
         this.logger_.info("[Cashfree] capturePayment")
         return { status: "captured" }
     }
 
-    async deletePayment(paymentSessionData: Record<string, unknown>): Promise<any> {
+    async deletePayment(input: any): Promise<any> {
         this.logger_.info("[Cashfree] deletePayment")
         return {}
     }
 
-    async getPaymentData(paymentSessionData: Record<string, unknown>): Promise<any> {
-        return paymentSessionData
+    async getPaymentData(input: any): Promise<any> {
+        return input.payment_session_data || input
     }
 
-    async refundPayment(payment: Record<string, unknown>, refundAmount: number): Promise<any> {
+    async refundPayment(input: any): Promise<any> {
         this.logger_.info("[Cashfree] refundPayment")
-        return { id: payment.id }
+        return { id: input.id || input.payment_session_data?.id }
     }
 
-    async getPaymentStatus(paymentSessionData: Record<string, unknown>): Promise<any> {
+    async getPaymentStatus(input: any): Promise<any> {
         this.logger_.info("[Cashfree] getPaymentStatus")
         return "authorized"
     }
 
-    async retrievePayment(paymentSessionData: Record<string, unknown>): Promise<any> {
+    async retrievePayment(input: any): Promise<any> {
         this.logger_.info("[Cashfree] retrievePayment")
-        return paymentSessionData
+        return input.payment_session_data || input
     }
 
     async updatePayment(context: any): Promise<any> {
