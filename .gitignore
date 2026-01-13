@@ -1,0 +1,27 @@
+# Systems
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.gemini/
+
+# Dependencies
+node_modules/
+
+# Environment
+.env
+.env.local
+.env.production
+.env.development
+.env.test
+
+# Next.js / Frontend
+.next/
+out/
+build/
+.vercel/
+
+# Medusa / Backend
+dist/
+uploads/
+.medusa/
